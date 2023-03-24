@@ -1,6 +1,6 @@
 import { ThemeProvider } from "styled-components";
 import { Header } from "./components/Header";
-import { Vitrines } from "./pages/vitrines";
+import { Menu } from "./pages/menu";
 import { defaultTheme } from "./styles/themes/default";
 import { GlobalStyle } from "./styles/themes/global";
 
@@ -9,7 +9,7 @@ function App() {
     <>
       <ThemeProvider theme={defaultTheme}>
         <Header/>
-        <Vitrines />
+        <Menu />
         <GlobalStyle />
       </ThemeProvider>
     </>

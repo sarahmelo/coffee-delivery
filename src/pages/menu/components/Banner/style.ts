@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 
-export const BannerContainer = styled.div`
+export const BannerContainer = styled.section`
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     gap: 77px;
 
     padding: 92px 0;
+    max-width: 1120px;
+    margin: 0 auto;
     /* background-img: url('../../../../assets/background.png') no-repeat center center; */
 `
 
@@ -23,6 +26,7 @@ export const SubTitle = styled.h4`
     font-size: 20px;
     font-weight: 400;
     line-height: 130%;
+    margin-bottom: 66px;
 
     color: ${(props) => props.theme['base-subtitle']};
 `
@@ -31,7 +35,19 @@ export const CoffeeIllustration = styled.img`
     width: 476px;
 `
 
+export const ListItems = styled.ul`
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 567px;
+`
+
 export const Item = styled.li`
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+
     font-size: 16px;
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
@@ -52,5 +68,9 @@ interface ColorsProps {
 
 export const IconContainer = styled.div<ColorsProps>`
     padding: 8px;
+    border-radius: 25px;
+    width: 32px;
+    height: 32px;
+    
     background-color: ${(props) => props.theme[COLORS[props.backgroundColor]]};
 `

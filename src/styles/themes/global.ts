@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     body {
-        padding: 0 160px;
+        padding: 0 40px;
     }
 
     body, button {

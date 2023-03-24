@@ -14,10 +14,12 @@ interface ColorsProps {
 }
 
 export const HeaderApp = styled.header`
-    padding: 32px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 32px 0;
+    margin: 0 auto;
+    max-width: 1120px;
 `
 
 export const Logo = styled.img`
