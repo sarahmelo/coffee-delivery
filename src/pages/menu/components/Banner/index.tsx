@@ -1,35 +1,13 @@
 import { BannerContainer, CoffeeIllustration, IconContainer, Item, ListItems, SubTitle, Title } from "./style";
 import coffeeIllustration from '../../../../assets/coffee.svg'
 import { Coffee, Package, ShoppingCart, Timer } from "@phosphor-icons/react";
-import { useEffect, useRef, useState } from "react";
 
 export function Banner() {
-    const getWindowSize = (): { innerHeight: number; innerWidth: number; } => {
-        const { innerWidth, innerHeight } = window;
-        return { innerHeight, innerWidth }
-    }
-    
-    const [windowSize, setWindowSize] = useState(getWindowSize())
-
-    useEffect(() => {
-        handleWindowResize();
-
-        window.addEventListener('resize', handleWindowResize)
-
-        return () => {
-            window.removeEventListener('resize', handleWindowResize)
-        }
-    }, [])
-
-    const handleWindowResize = (): void => {
-        setWindowSize(getWindowSize())
-    }
-
     return (
         <BannerContainer>
             <div>
                 <Title>Encontre o café perfeito para qualquer hora do dia</Title>
-                <SubTitle>Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</SubTitle>
+                <SubTitle>Com o Coffee Delivery você rec ebe seu café onde estiver, a qualquer hora</SubTitle>
                 <ListItems>
                     <Item>
                         <IconContainer backgroundColor="yellowDark">
