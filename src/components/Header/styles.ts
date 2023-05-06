@@ -44,4 +44,6 @@ export const TranslucentButton = styled.button<ColorsProps>`
     border: 0;
     border-radius: 6px;
     font-size: 14px;
+
+    cursor: pointer;
 `

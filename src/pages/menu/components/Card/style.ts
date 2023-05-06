@@ -6,7 +6,6 @@ export const CardContainer = styled.div`
     align-items: center;
     padding: 20px;
     width: 256px;
-    margin-top: 54px;
 
     background-color: ${(props) => props.theme['base-card']};
     border-radius: 6px 36px 6px 36px;
@@ -56,6 +55,7 @@ export const Subtitle = styled.p`
 export const FlagContainer = styled.div`
     display: flex;
     gap: 4px;
+    margin-top: 12px;
 `
 
 export const BottomActions = styled.div`
@@ -81,9 +81,10 @@ export const Price = styled.p`
 
 export const CounterContainer = styled.div`
     display: flex;
-    padding: 8px;
+    align-items: center;
+    padding: 4px 12px;
     border-radius: 6px;
-    gap: 4px;
+    gap: 8px;
     
     background-color: ${(props) => props.theme['base-button']};
 `
@@ -99,12 +100,14 @@ export const Add = styled.button`
     color: ${(props) => props.theme['purple']};
     border: 0;
     background-color: transparent;
+    cursor: pointer;
 `
 
 export const Remove = styled.button`
     color: ${(props) => props.theme['purple']};
     border: 0;
     background-color: transparent;
+    cursor: pointer;
 `
 
 export const SquareButton = styled.button`
@@ -114,6 +117,7 @@ export const SquareButton = styled.button`
     height: 38px;
     background-color: ${(props) => props.theme['purple-dark']};
     color: ${(props) => props.theme['white']};
+    cursor: pointer;
 `
 
 export const ActionsButtons = styled.div`

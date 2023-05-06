@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router";
-import { Menu } from "./pages/menu";
-import { ShoppingCart } from "./pages/shopping-cart";
+import { Menu } from "../pages/menu";
+import { ShoppingCart } from "../pages/shopping-cart";
 
 export function Router() {
     return (

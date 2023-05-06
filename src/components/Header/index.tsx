@@ -1,11 +1,20 @@
 import { TranslucentButton, NavigationContent, Logo, HeaderApp } from "./styles";
 import { MapPin, ShoppingCart } from '@phosphor-icons/react'
 import logo from '../../assets/logo.svg'
+import { Link } from "react-router-dom";
+import React from "react";
+import { useCart } from "../../contexts/CartContext";
 
 export function Header() {
+    const { coffeCart } = useCart()
+
+    console.log(coffeCart)
+
     return (
         <HeaderApp>
-            <Logo src={logo} alt="" />
+            <Link to={'/'}>
+                <Logo src={logo} alt=""/>
+            </Link>
             <NavigationContent>
                 <TranslucentButton 
                     backgroundColor="purpleLight" 
@@ -17,15 +26,17 @@ export function Header() {
                     />
                     Porto Alegre, RS
                 </TranslucentButton>
-                <TranslucentButton 
-                    backgroundColor="yellowLight" 
-                    textColor="yellowDark"
-                >
-                    <ShoppingCart 
-                        size={22} 
-                        weight={"fill"}
-                    />
-                </TranslucentButton>
+                <Link to={'/shopping-cart'}>
+                    <TranslucentButton 
+                        backgroundColor="yellowLight" 
+                        textColor="yellowDark"
+                    >
+                        <ShoppingCart 
+                            size={22} 
+                            weight={"fill"}
+                        />
+                    </TranslucentButton>
+                </Link>
             </NavigationContent>
         </HeaderApp>
     )

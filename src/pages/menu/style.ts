@@ -18,4 +18,5 @@ export const MenuItems = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
     gap: 32px;
     justify-items: center;
+    margin-top: 54px;
 `

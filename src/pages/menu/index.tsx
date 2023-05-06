@@ -1,22 +1,27 @@
-import { useEffect, useRef, useState } from "react";
 import { Banner } from "./components/Banner";
-import { Card } from "./components/Catalog";
+import { Card } from "./components/Card";
 import { MenuContainer, MenuItems, MenuTitle } from "./style";
+import { Coffee, menuCoffee } from "../../contexts/menu";
 
 export function Menu() {
+    const menu: Coffee[] = menuCoffee
+
     return (
         <>
             <Banner/>
             <MenuContainer>
                 <MenuTitle>
-                    Nossos cafés
+                    Nossos Cafés
                 </MenuTitle>
                 <MenuItems>
-                    <Card></Card>
-                    <Card></Card>
-                    <Card></Card>
-                    <Card></Card>
-                    <Card></Card>
+                    { menu.map((coffe: Coffee) => {
+                        return (
+                            <Card
+                                key={coffe.id}
+                                coffe={coffe}
+                            ></Card>
+                        )
+                    }) }
                 </MenuItems>
             </MenuContainer>
         </>

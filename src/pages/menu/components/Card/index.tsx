@@ -1,34 +1,30 @@
-import { StringLiteral } from "typescript";
 import { ActionsButtons, Add, BottomActions, CardContainer, CoffeeImage, Count, CounterContainer, FlagContainer, Price, Remove, SquareButton, Subtitle, Tag, Title } from "./style";
-import coffee from '../../../../assets/menu/café-com-leite.svg'
-import { Minus, Plus, ShoppingCart, ShoppingCartSimple } from "@phosphor-icons/react";
+import { Minus, Plus, ShoppingCartSimple } from "@phosphor-icons/react";
+import { Coffee, Flag } from "../../../../contexts/menu";
+import { useCart } from "../../../../contexts/CartContext";
 
-type CardProps = {
-    coffeeImage: string;
-    status: string;
-    title: string;
-    description: StringLiteral;
-    value: number;
-    quantity: number;
-    onAddToCart: () => void;
-}
+type CardProps = { coffe: Coffee }
 
-export function Card() {
+export function Card({ coffe }: CardProps) {
+    const { handleSetCart } = useCart()
+
     return (
         <CardContainer>
-            <CoffeeImage src={coffee}>
+            <CoffeeImage src={coffe.image}>
                 
             </CoffeeImage>
             <FlagContainer>
-                <Tag>tradicional</Tag>
-                <Tag>com leite</Tag>
-                <Tag>quente</Tag>
+                {coffe.tag.map((flag: Flag) => {
+                    return (
+                        <Tag key={flag}>{flag}</Tag>
+                    )
+                })}
             </FlagContainer>
-            <Title>Expresso Tradicional</Title>
-            <Subtitle>O tradicional café feito com água quente e grãos moídos</Subtitle>
+            <Title>{coffe.name}</Title>
+            <Subtitle>{coffe.description}</Subtitle>
             <BottomActions>
                 <Price>
-                    9,90
+                    {coffe.price}
                 </Price>
                 <ActionsButtons>
                     <CounterContainer>
@@ -40,7 +36,7 @@ export function Card() {
                             <Plus size={14} weight={'light'}/>
                         </Add>
                     </CounterContainer>
-                    <SquareButton>
+                    <SquareButton onClick={(e) => handleSetCart(coffe)}>
                         <ShoppingCartSimple size={22} weight={"fill"}/>
                     </SquareButton>
                 </ActionsButtons>

@@ -35,6 +35,7 @@ export function Banner() {
                     </Item>
                 </ListItems>
             </div>
+            <CoffeeIllustration src={coffeeIllustration} />
         </BannerContainer>
     )
 }
