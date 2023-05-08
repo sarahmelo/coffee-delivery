@@ -1,5 +1,7 @@
+import { RegisterCard } from "./components/form";
+
 export function ShoppingCart() {
     return (
-        <h1>ShoppingCart</h1>
+        <RegisterCard/>
     )
 }

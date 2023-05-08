@@ -7,7 +7,7 @@ export const CardContainer = styled.div`
     padding: 20px;
     width: 256px;
 
-    background-color: ${(props) => props.theme['base-card']};
+    background-color: ${(props) => props.theme.base['base-card']};
     border-radius: 6px 36px 6px 36px;
 `
 
@@ -28,8 +28,8 @@ export const Tag = styled.p`
     text-transform: uppercase;
     border-radius: 13px;
 
-    background-color: ${(props) => props.theme['yellow-light']};
-    color: ${(props) => props.theme['yellow-dark']};
+    background-color: ${(props) => props.theme.brand['yellow-light']};
+    color: ${(props) => props.theme.brand['yellow-dark']};
 `
 
 export const Title = styled.p`
@@ -38,7 +38,7 @@ export const Title = styled.p`
     font-size: 20px;
     font-family: 'Baloo 2', cursive;
 
-    color: ${(props) => props.theme['base-subtitle']};
+    color: ${(props) => props.theme.typography.color['base-subtitle']};
 `
 
 export const Subtitle = styled.p`
@@ -49,7 +49,7 @@ export const Subtitle = styled.p`
 
     margin-top: 8px;
 
-    color: ${(props) => props.theme['base-label']};
+    color: ${(props) => props.theme.typography.color['base-label']};
 `
 
 export const FlagContainer = styled.div`
@@ -70,7 +70,7 @@ export const Price = styled.p`
     font-size: 24px;
     font-family: 'Baloo 2', cursive;
     
-    color: ${(props) => props.theme['base-text']};
+    color: ${(props) => props.theme.base['base-text']};
 
     ::before {
         content: 'R$ ';
@@ -86,7 +86,7 @@ export const CounterContainer = styled.div`
     border-radius: 6px;
     gap: 8px;
     
-    background-color: ${(props) => props.theme['base-button']};
+    background-color: ${(props) => props.theme.base['base-button']};
 `
 
 export const Count = styled.p`
@@ -97,14 +97,14 @@ export const Count = styled.p`
 `
 
 export const Add = styled.button`
-    color: ${(props) => props.theme['purple']};
+    color: ${(props) => props.theme.brand['purple']};
     border: 0;
     background-color: transparent;
     cursor: pointer;
 `
 
 export const Remove = styled.button`
-    color: ${(props) => props.theme['purple']};
+    color: ${(props) => props.theme.brand['purple']};
     border: 0;
     background-color: transparent;
     cursor: pointer;
@@ -115,8 +115,8 @@ export const SquareButton = styled.button`
     border: 0;
     border-radius: 8px;
     height: 38px;
-    background-color: ${(props) => props.theme['purple-dark']};
-    color: ${(props) => props.theme['white']};
+    background-color: ${(props) => props.theme.brand['purple-dark']};
+    color: ${(props) => props.theme.brand['white']};
     cursor: pointer;
 `
 

@@ -10,7 +10,7 @@ export const MenuTitle = styled.div`
     font-size: 32px;
     font-family: 'Baloo 2';
 
-    color: ${(props) => props.theme['base-subtitle']};
+    color: ${(props) => props.theme.typography.color['base-subtitle']};
 `
 
 export const MenuItems = styled.div`

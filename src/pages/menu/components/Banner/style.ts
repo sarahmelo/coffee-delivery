@@ -1,15 +1,14 @@
-import styled from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
 
 export const BannerContainer = styled.section`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     gap: 77px;
-
+    
     padding: 92px 0;
     max-width: 1120px;
     margin: 0 auto;
-    /* background-img: url('../../../../assets/background.png') no-repeat center center; */
 `
 
 export const Title = styled.h2`
@@ -18,7 +17,7 @@ export const Title = styled.h2`
     font-weight: 800;
     line-height: 130%;
 
-    color: ${(props) => props.theme['base-title']};
+    color: ${(props) => props.theme.typography.color['base-title']};
 `
 
 export const SubTitle = styled.h4`
@@ -28,7 +27,7 @@ export const SubTitle = styled.h4`
     line-height: 130%;
     margin-bottom: 66px;
 
-    color: ${(props) => props.theme['base-subtitle']};
+    color: ${(props) => props.theme.typography.color['base-subtitle']};
 `
 
 export const CoffeeIllustration = styled.img`
@@ -52,18 +51,18 @@ export const Item = styled.li`
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
 
-    color: ${(props) => props.theme['base-text']};
+    color: ${(props) => props.theme.typography.color['base-text']};
 `
 
-const COLORS = {
-    baseText: 'base-text',
-    yellowDark: 'yellow-dark',
-    yellow: 'yellow',
-    purple: 'purple'
-} as const
+type COLORS = 
+    'yellow-dark' |
+    'yellow' |
+    'purple' |
+    'base-text'
+
 
 interface ColorsProps {
-    backgroundColor: keyof typeof COLORS;
+    color: keyof DefaultTheme['brand'];
 }
 
 export const IconContainer = styled.div<ColorsProps>`
@@ -72,5 +71,5 @@ export const IconContainer = styled.div<ColorsProps>`
     width: 32px;
     height: 32px;
     
-    background-color: ${(props) => props.theme[COLORS[props.backgroundColor]]};
+    background-color: ${({theme, color}) => theme.brand[color]};
 `

@@ -6,14 +6,18 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
-    
-    body {
-        padding: 0 40px;
-        padding-bottom: 157px;
+
+    .container {
+        max-width: 1120px;
+        margin: 0 auto;
+    } 
+
+    body { 
+        overflow: overlay;
     }
 
     body, button {
         font-family: 'Roboto', sans-serif;
-        background-color: ${(props) => props.theme['background']};
+        background-color: ${(props) => props.theme.brand['background']};
     }
 `
