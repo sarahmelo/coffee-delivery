@@ -1,15 +1,6 @@
 import styled, { DefaultTheme } from 'styled-components'
 import { Typography } from '../../styles/themes/typography.type';
 
-const COLORS = {
-    yellowDark: 'yellow-dark',
-    yellowLight: 'yellow-light',
-    purpleDark: 'purple-dark',
-    purple: 'purple',
-    purpleLight: 'purple-light',
-    white: 'white'
-} as const
-
 interface ColorsProps {
     backgroundColor: keyof DefaultTheme['brand'];
     color: keyof DefaultTheme['brand'];
@@ -17,6 +8,7 @@ interface ColorsProps {
 
 export const HeaderApp = styled.header`
     width: 100%;
+    max-width: 1120px;
     display: flex;
     -webkit-box-align: center;
     align-items: center;

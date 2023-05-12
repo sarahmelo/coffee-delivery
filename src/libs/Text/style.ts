@@ -9,7 +9,7 @@ type TextProps = {
 }
 
 export const Text = styled.div<TextProps>`
-    font-size: ${({ fontSize }) => fontSize };
+    font-size: ${({ theme, fontSize }) => theme.typography.text[fontSize] };
     color: ${({ theme , color }) =>  theme.typography.color[color] };
     font-family: 'Roboto', sans-serif;
 `

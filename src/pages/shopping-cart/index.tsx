@@ -1,7 +1,14 @@
-import { RegisterCard } from "./components/form";
+import { PaymentMethod } from "./components/PaymentMethod";
+import { Registration } from "./components/Registration";
+import { PaymentRegister, ShoppingCartContainer } from "./styled";
 
 export function ShoppingCart() {
     return (
-        <RegisterCard/>
+        <ShoppingCartContainer>
+            <PaymentRegister>
+                <Registration />
+                <PaymentMethod />
+            </PaymentRegister>
+        </ShoppingCartContainer>
     )
 }

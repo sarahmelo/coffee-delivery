@@ -1,0 +1,23 @@
+import styled, { DefaultTheme } from "styled-components"
+import { Border } from "./form.types"
+
+type BackgroundColorType = {
+    backgroundColor: keyof DefaultTheme['base'],
+    border: Border,
+}
+
+export const HeaderForm = styled.div`
+    display: flex;
+    gap: 8px;
+`
+
+export const TextContainer = styled.div``
+
+export const FormContainer = styled.div<BackgroundColorType>`
+    padding: 40px;
+    background-color: ${({ theme, backgroundColor }) => theme.base[backgroundColor] };
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+`
