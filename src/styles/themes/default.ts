@@ -8,7 +8,9 @@ export const defaultTheme = {
         'purple': '#8047F8',
         'purple-light': '#EBE5F9',
         'background': '#FAFAFA',
-        'white': '#FFFFFF'
+        'white': '#FFFFFF',
+        'neutral': '#E6E5E5',
+        'base-button': '#E6E5E5'
     },
     base: {
         'base-hover': '#272221',
@@ -23,6 +25,7 @@ export const defaultTheme = {
             'base-subtitle': '#403937',
             'base-text': '#574F4D',
             'base-label': '#8D8686',
+            'neutral': '#FFFFFF'
         },
         headline: {
             xs: '18px',

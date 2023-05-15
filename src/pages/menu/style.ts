@@ -15,7 +15,7 @@ export const MenuTitle = styled.div`
 
 export const MenuItems = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 32px;
     justify-items: center;
     margin-top: 54px;

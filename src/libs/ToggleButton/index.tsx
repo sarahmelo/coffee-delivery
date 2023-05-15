@@ -1,5 +1,6 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { InvisableInput, ToggleButtonContainer } from "./styled";
+import { Text } from "../Text/style";
 
 type ToggleButtonProps = {
     label: string;
@@ -12,13 +13,15 @@ export const ToggleButton = ({
     icon,
     id,
 }: ToggleButtonProps): JSX.Element => {
+    const [isActive, setIsActive] = useState<boolean>(false)
+
     return (
         <>
             <ToggleButtonContainer htmlFor={id}>
                 {icon}
-                {label}
+                <Text color="base-text" fontSize="xs" as={'p'}>{label}</Text>
             </ToggleButtonContainer>
-            <InvisableInput type="radio" id={id}/>
+            <InvisableInput type="radio" id={id} onChange={(e) => console.log(e)}/>
         </>
     )
 }

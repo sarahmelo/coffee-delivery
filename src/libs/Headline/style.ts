@@ -11,4 +11,5 @@ export const Headline = styled.div<HeadlineProps>`
     font-size: ${({ theme, fontSize }) =>  theme.typography.headline[fontSize]};
     color: ${({ theme, color }) =>  theme.typography.color[color] };
     font-family: 'Baloo 2', sans-serif;
+    line-height: 1;
 `           
