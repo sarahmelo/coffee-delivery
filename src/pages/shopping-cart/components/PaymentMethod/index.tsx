@@ -8,7 +8,7 @@ export function PaymentMethod() {
     const { paymentProviders } = useCart();
     return (
         <Form 
-            border="semi-rounded" 
+            border="rounded" 
             hasHeader={true} 
             icon={
                 <CurrencyDollar 

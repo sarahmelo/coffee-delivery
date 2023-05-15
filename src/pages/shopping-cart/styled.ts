@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const ShoppingCartContainer = styled.div`
     display: flex;
-    gap: 24px;
+    gap: 14px;
 `
 
 export const FirstStep = styled.div`

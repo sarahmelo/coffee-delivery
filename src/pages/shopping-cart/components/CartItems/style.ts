@@ -10,8 +10,11 @@ export const ListItems = styled.div`
     display: flex;
     flex-direction: column;
     gap: 24px;
-    max-height: 230px;
-    overflow: overlay;
+
+
+    ::-webkit-scrollbar-thumb {
+        background-color: white
+    }
 `
 
 export const Divider = styled.hr`

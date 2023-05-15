@@ -56,7 +56,7 @@ export function CartItems() {
                         </PaymentNoteInfo>
                         <PaymentNoteInfo>
                             <Headline fontSize="xs" color="base-text">Total</Headline>
-                            <Headline fontSize="xs" color="base-text">R$ {sumTotal()}</Headline>
+                            <Headline fontSize="m" color="base-text">R$ {sumTotal()}</Headline>
                         </PaymentNoteInfo>
                     </PaymentNote>
                     <Button size="lg" backgroundColor="yellow">

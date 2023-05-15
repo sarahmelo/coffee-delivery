@@ -1,5 +1,5 @@
 import styled, { DefaultTheme } from "styled-components"
-import { Border } from "./form.types"
+import { Border, BorderRadius } from "./form.types"
 
 type BackgroundColorType = {
     backgroundColor: keyof DefaultTheme['base'],
@@ -16,6 +16,7 @@ export const TextContainer = styled.div``
 export const FormContainer = styled.div<BackgroundColorType>`
     padding: 40px;
     background-color: ${({ theme, backgroundColor }) => theme.base[backgroundColor] };
+    border-radius: ${({ border }) =>  BorderRadius[border]};
     max-width: 680px;
     display: flex;
     flex-direction: column;
