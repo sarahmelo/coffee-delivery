@@ -56,6 +56,7 @@ export const CartProvider = ({ children }: CoffeDeliveryProviderProps) => {
             return
         }
     }
+    
 
     return (
         <CartContext.Provider value={{ 
