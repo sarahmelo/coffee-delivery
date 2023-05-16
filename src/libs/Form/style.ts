@@ -11,7 +11,11 @@ export const HeaderForm = styled.div`
     gap: 8px;
 `
 
-export const TextContainer = styled.div``
+export const TextContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+`
 
 export const FormContainer = styled.div<BackgroundColorType>`
     padding: 40px;

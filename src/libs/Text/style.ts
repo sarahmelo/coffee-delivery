@@ -12,5 +12,4 @@ export const Text = styled.div<TextProps>`
     font-size: ${({ theme, fontSize }) => theme.typography.text[fontSize] };
     color: ${({ theme , color }) =>  theme.typography.color[color] };
     font-family: 'Roboto', sans-serif;
-    line-height: 1;
 `

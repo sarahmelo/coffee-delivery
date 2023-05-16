@@ -10,7 +10,8 @@ export const GlobalStyle = createGlobalStyle`
     .container {
         max-width: 1120px;
         margin: 0 auto;
-        padding: 14px;
+        padding: 24px 24px;
+        padding-bottom: 157px;
     } 
 
     body { 

@@ -7,7 +7,7 @@ import { useCart } from "../../contexts/CartContext";
 
 export function Header() {
     const { coffeCart } = useCart()
-
+    
     return (
         <HeaderApp>
             <Link to={'/'}>
@@ -28,6 +28,7 @@ export function Header() {
                     <TranslucentButton 
                         backgroundColor="yellow-light" 
                         color="yellow-dark"
+                        disabled={coffeCart.length === 0}
                     >
                         <Chip
                             color="white" 

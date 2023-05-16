@@ -5,8 +5,7 @@ import { Bank, CreditCard, Money } from "@phosphor-icons/react";
 type Payment = 'cartão de crédito' | 'cartão de débito' | 'dinheiro'
 type PaymentProviderProps = {
     name: Payment,
-    icon: ReactNode,
-    
+    icon: ReactNode,   
 }
 
 const paymentProviders: PaymentProviderProps[] = [
@@ -31,6 +30,7 @@ type CoffeDeliveryProviderProps = {
 type CoffeDeliveryContextData = {
     coffeCart: Coffee[], 
     handleSetCart: (coffe: Coffee) => void,
+    removeItem: (coffe: Coffee) => void,
     paymentProviders: PaymentProviderProps[],
 }
 
@@ -38,6 +38,7 @@ type CoffeDeliveryContextData = {
 export const CartContext = createContext<CoffeDeliveryContextData>({
     coffeCart: [],
     handleSetCart: () => { },
+    removeItem: () => { },
     paymentProviders: paymentProviders,
 })
 
@@ -48,10 +49,19 @@ export const CartProvider = ({ children }: CoffeDeliveryProviderProps) => {
         setCoffeCart([...coffeCart, coffe])
     }
 
+    const removeItem = (coffee: Coffee): void => {
+        const hasCoffee = coffeCart.find((item): boolean => item === coffee)
+
+        if (!hasCoffee) {
+            return
+        }
+    }
+
     return (
         <CartContext.Provider value={{ 
             coffeCart,
             handleSetCart, 
+            removeItem,
             paymentProviders 
         }}>
             {children}

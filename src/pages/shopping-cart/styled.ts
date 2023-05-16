@@ -3,6 +3,10 @@ import styled from 'styled-components'
 export const ShoppingCartContainer = styled.div`
     display: flex;
     gap: 14px;
+
+    @media (max-width: 1145px) {
+        flex-direction: column;
+    }
 `
 
 export const FirstStep = styled.div`

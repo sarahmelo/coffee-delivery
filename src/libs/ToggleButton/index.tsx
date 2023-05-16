@@ -19,7 +19,7 @@ export const ToggleButton = ({
         <>
             <ToggleButtonContainer htmlFor={id}>
                 {icon}
-                <Text color="base-text" fontSize="xs" as={'p'}>{label}</Text>
+                <Text color="base-text" fontSize="xxs" as={'p'}>{label}</Text>
             </ToggleButtonContainer>
             <InvisableInput type="radio" id={id} onChange={(e) => console.log(e)}/>
         </>

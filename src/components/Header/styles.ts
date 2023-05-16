@@ -14,7 +14,7 @@ export const HeaderApp = styled.header`
     align-items: center;
     -webkit-box-pack: justify;
     justify-content: space-between;
-    padding: 24px 14px;
+    padding: 24px;
     margin: 0px auto;
     background-color: #fafafa;
 `

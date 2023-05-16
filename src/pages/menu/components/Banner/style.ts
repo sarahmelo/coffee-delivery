@@ -32,6 +32,10 @@ export const SubTitle = styled.h4`
 
 export const CoffeeIllustration = styled.img`
     width: 476px;
+
+    @media (max-width: 1145px) {
+        display: none;
+    }
 `
 
 export const ListItems = styled.ul`
@@ -39,6 +43,11 @@ export const ListItems = styled.ul`
     display: grid;
     grid-template-columns: 1fr 1fr;
     max-width: 567px;
+
+
+    @media (max-width: 1145px) {
+        grid-template-columns: 1fr;
+    }
 `
 
 export const Item = styled.li`

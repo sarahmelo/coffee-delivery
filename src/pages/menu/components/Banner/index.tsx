@@ -7,7 +7,7 @@ export function Banner() {
         <BannerContainer>
             <div>
                 <Title>Encontre o café perfeito para qualquer hora do dia</Title>
-                <SubTitle>Com o Coffee Delivery você rec ebe seu café onde estiver, a qualquer hora</SubTitle>
+                <SubTitle>Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</SubTitle>
                 <ListItems>
                     <Item>
                         <IconContainer color="yellow-dark">
