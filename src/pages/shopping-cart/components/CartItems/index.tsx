@@ -1,6 +1,6 @@
 import { useCart } from "../../../../contexts/CartContext";
 import { Coffee } from "../../../../contexts/menu";
-import { Button } from "../../../../libs/Button";
+import { Button } from "../../../../libs/Button/style";
 import { CardCart } from "../../../../libs/CardCart";
 import { Form } from "../../../../libs/Form";
 import { Headline } from "../../../../libs/Headline/style";
@@ -37,7 +37,7 @@ export function CartItems() {
                         coffeCart.map((coffee) => {
                             return (
                                 <>
-                                    <CardCart coffe={coffee} />
+                                    <CardCart coffee={coffee} />
                                     <Divider/>
                                 </>
                             )

@@ -46,15 +46,30 @@ export const CartProvider = ({ children }: CoffeDeliveryProviderProps) => {
     const [coffeCart, setCoffeCart] = useState<Coffee[]>([])
 
     const handleSetCart = (coffe: Coffee): void => {
-        setCoffeCart([...coffeCart, coffe])
-    }
 
-    const removeItem = (coffee: Coffee): void => {
-        const hasCoffee = coffeCart.find((item): boolean => item === coffee)
+        const newCoffe: Coffee = {
+            ...coffe,
+            uuid: Math.random()
+        } 
+
+        setCoffeCart([...coffeCart, newCoffe])
+    }
+    
+    console.log(coffeCart)
+
+    const removeItemOfCart = (coffee: Coffee): void => {
+        const hasCoffee = coffeCart.find(
+            (item): boolean => item.uuid === coffee.uuid
+        );
 
         if (!hasCoffee) {
             return
         }
+
+        const newCoffeCart = coffeCart.filter(
+            (item: Coffee) => item.uuid !== coffee.uuid
+        )
+        setCoffeCart(newCoffeCart)
     }
     
 
@@ -62,7 +77,7 @@ export const CartProvider = ({ children }: CoffeDeliveryProviderProps) => {
         <CartContext.Provider value={{ 
             coffeCart,
             handleSetCart, 
-            removeItem,
+            removeItem: removeItemOfCart,
             paymentProviders 
         }}>
             {children}

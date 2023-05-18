@@ -20,6 +20,7 @@ export type Coffee = {
     price: string;
     id: number;
     image: string;
+    uuid?: number;
 }
 
 export type CoffeeName = 
@@ -44,7 +45,7 @@ export const menuCoffee: Coffee[] = [
     {
         name: "Expresso Tradicional",
         description: "O tradicional café feito com água quente e grãos moídos",
-        id: 1,
+        id: Math.random(),
         price: '9.90',
         tag: [
             "tradicional",
@@ -55,7 +56,7 @@ export const menuCoffee: Coffee[] = [
     {
         name: "Expresso Americano",
         description: "Expresso diluído, menos intenso que o tradicional",
-        id: 2,
+        id: Math.random(),
         price: '9.90',
         tag: [
             "tradicional",
@@ -66,7 +67,7 @@ export const menuCoffee: Coffee[] = [
     {
         name: "Expresso Cremoso",
         description: "Café expresso tradicional com cremosa",
-        id: 3,
+        id: Math.random(),
         price: '9.90',
         tag: [
             "tradicional",
@@ -77,7 +78,7 @@ export const menuCoffee: Coffee[] = [
     {
         name: "Expresso Gelado",
         description: "Bebida preparada com café expresso e cubos de gelo",
-        id: 4,
+        id: Math.random(),
         price: '9.90',
         tag: [
             "tradicional",
@@ -88,7 +89,7 @@ export const menuCoffee: Coffee[] = [
     {
         name: "Café com Leite",
         description: "Meio a meio de expresso tradicional com leite vaporizado",
-        id: 5,
+        id: Math.random(),
         price: '9.90',
         tag: [
             "tradicional",
@@ -100,7 +101,7 @@ export const menuCoffee: Coffee[] = [
     {
         name: "Latte",
         description: "Uma dose de café expresso com o dobro de leite e espuma cremosa",
-        id: 6,
+        id: Math.random(),
         price: '9.90',
         tag: [
             "tradicional",
@@ -112,7 +113,7 @@ export const menuCoffee: Coffee[] = [
     {
         name: "Capuccino",
         description: "Bebida com canela feita de oses iguais de café, leite e espuma",
-        id: 7,
+        id: Math.random(),
         price: '9.90',
         tag: [
             "tradicional",
@@ -124,7 +125,7 @@ export const menuCoffee: Coffee[] = [
     {
         name: "Macchiato",
         description: "Café expresso misturado com um pouco de leite quente e espuma",
-        id: 8,
+        id: Math.random(),
         price: '9.90',
         tag: [
             "tradicional",
@@ -136,7 +137,7 @@ export const menuCoffee: Coffee[] = [
     {
         name: "Mocaccino",
         description: "Café espresso com calda de chocolate, pouco leite e espuma",
-        id: 9,
+        id: Math.random(),
         price: '9.90',
         tag: [
             "tradicional",
@@ -148,7 +149,7 @@ export const menuCoffee: Coffee[] = [
     {
         name: "Chocolate Quente",
         description: "Bebida feita com chocolate dissolvido no leite quente e café",
-        id: 10,
+        id: Math.random(),
         price: '9.90',
         tag: [
             "especial",
@@ -160,7 +161,7 @@ export const menuCoffee: Coffee[] = [
     {
         name: "Cubano",
         description: "Drink gelado de café expresso com rum, creme de leite hortelã",
-        id: 11,
+        id: Math.random(),
         price: '9.90',
         tag: [
             "especial",
@@ -172,7 +173,7 @@ export const menuCoffee: Coffee[] = [
     {
         name: "Havaiano",
         description: "Bebida adocicada preparada com café e leite de coco",
-        id: 12,
+        id: Math.random(),
         price: '9.90',
         tag: [
             "especial",
@@ -183,7 +184,7 @@ export const menuCoffee: Coffee[] = [
     {
         name: "Árabe",
         description: "Bebida preparada com grãos de café árabe e especiaras",
-        id: 13,
+        id: Math.random(),
         price: '9.90',
         tag: [
             "especial",
@@ -194,7 +195,7 @@ export const menuCoffee: Coffee[] = [
     {
         name: "Irlandês",
         description: "Bebida a base de café, uísque irlandês, açúcar e chantilly",
-        id: 14,
+        id: Math.random(),
         price: '9.90',
         tag: [
             "especial",

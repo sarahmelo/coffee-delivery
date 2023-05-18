@@ -1,12 +1,13 @@
 import styled, { DefaultTheme } from 'styled-components'
 import { SizeButton, SizeButtonProps } from './type/size-button.type'
+import { Icon } from '@phosphor-icons/react'
 
 type ButtonContainerProps = {
     backgroundColor: keyof DefaultTheme['brand']
     size: keyof SizeButton
 }
 
-export const ButtonContainer = styled.button<ButtonContainerProps>`
+export const Button = styled.button<ButtonContainerProps>`
     display: flex;
     gap: 4px;
     padding: ${({ size }) => SizeButtonProps[size]['padding'] };

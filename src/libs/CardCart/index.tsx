@@ -1,43 +1,59 @@
 import { Trash } from "@phosphor-icons/react";
 import { Coffee } from "../../contexts/menu";
-import { Button } from "../Button";
 import { CounterButton } from "../CounterButton";
 import { Text } from "../Text/style";
 import { ActionButtons, CardCartContainer, CoffeeInfoContainer, CounterActionsContainer, Image } from "./style";
 import { ActionButton } from "../CounterButton/style";
 import { Headline } from "../Headline/style";
+import { useCart } from "../../contexts/CartContext";
+import { Button } from "../Button/style";
 
 type CardCartProps = {
-    coffe: Coffee
+    coffee: Coffee
 }
 
-export function CardCart({ coffe }: CardCartProps) {
+export function CardCart({ coffee }: CardCartProps) {
+    const { removeItem } = useCart();
+
     return (
         <CardCartContainer>
             <CoffeeInfoContainer>
-                <Image src={coffe.image} />
+                <Image src={coffee.image} />
                 <CounterActionsContainer>
-                    <Text color="base-text" fontSize="m">
-                        {coffe.name}
+                    <Text 
+                        color="base-text" 
+                        fontSize="m"
+                    >
+                        {coffee.name}
                     </Text>
                     <ActionButtons>
                         <CounterButton></CounterButton>
-                        <Button icon={
-                            <Trash size={16} color="#8047F8"/>
-                        } 
+                        <Button
                             backgroundColor="neutral"
                             size="sm"
+                            onClick={() => removeItem(coffee)}
                         >
+                            <Trash 
+                                size={16} 
+                                fill="#8047F8"
+                            ></Trash>
                             <Text 
                                 color="base-text" 
                                 fontSize="xs" 
                                 as={'p'}
-                            >Remover</Text>
+                            >
+                                Remover
+                            </Text>
                         </Button>
                     </ActionButtons>
                 </CounterActionsContainer>
             </CoffeeInfoContainer>
-            <Headline color="base-text" fontSize="xs">R${coffe.price}</Headline>
+            <Headline 
+                color="base-text" 
+                fontSize="xs"
+            >
+                R${coffee.price}
+            </Headline>
         </CardCartContainer>
     )
 }
