@@ -1,12 +1,15 @@
 import React, { createContext, ReactNode, useState } from "react";
-import { Coffee } from "./menu";
 import { Bank, CreditCard, Money } from "@phosphor-icons/react";
+import { Coffee, CoffeeName } from "./menu";
 
 type Payment = 'cartão de crédito' | 'cartão de débito' | 'dinheiro'
 type PaymentProviderProps = {
     name: Payment,
     icon: ReactNode,   
 }
+
+type CoffeeGroup = { [name: string]: Coffee[] }
+
 
 const paymentProviders: PaymentProviderProps[] = [
     {
@@ -29,36 +32,40 @@ type CoffeDeliveryProviderProps = {
 
 type CoffeDeliveryContextData = {
     coffeCart: Coffee[], 
-    handleSetCart: (coffe: Coffee) => void,
-    removeItem: (coffe: Coffee) => void,
+    shoppingCart: CoffeeGroup,
+    addCoffeeInShoppingCart: (coffee: Coffee) => void,
+    removeItem: (cofee: Coffee) => void,
     paymentProviders: PaymentProviderProps[],
 }
 
 
 export const CartContext = createContext<CoffeDeliveryContextData>({
     coffeCart: [],
-    handleSetCart: () => { },
+    shoppingCart: { },
+    addCoffeeInShoppingCart: () => { },
     removeItem: () => { },
     paymentProviders: paymentProviders,
 })
 
 export const CartProvider = ({ children }: CoffeDeliveryProviderProps) => {
-    const [coffeCart, setCoffeCart] = useState<Coffee[]>([])
+    const [coffeeCart, setCoffeCart] = useState<Coffee[]>([])
+    const [shoppingCart, setShoppingCart] = useState<CoffeeGroup>({ })
 
-    const handleSetCart = (coffe: Coffee): void => {
-
+    const handleSetCart = (coffee: Coffee): void => {
         const newCoffe: Coffee = {
-            ...coffe,
+            ...coffee,
             uuid: Math.random()
         } 
 
-        setCoffeCart([...coffeCart, newCoffe])
+        addCoffeeInShoppingCart(newCoffe)
+
+        console.log('====>', shoppingCart)
+
+        setCoffeCart([...coffeeCart, newCoffe])
     }
     
-    console.log(coffeCart)
-
     const removeItemOfCart = (coffee: Coffee): void => {
-        const hasCoffee = coffeCart.find(
+        const hasCoffee = coffeeCart.find(
             (item): boolean => item.uuid === coffee.uuid
         );
 
@@ -66,17 +73,40 @@ export const CartProvider = ({ children }: CoffeDeliveryProviderProps) => {
             return
         }
 
-        const newCoffeCart = coffeCart.filter(
+        const newCoffeCart = coffeeCart.filter(
             (item: Coffee) => item.uuid !== coffee.uuid
         )
+
         setCoffeCart(newCoffeCart)
     }
-    
+
+
+    const addCoffeeInShoppingCart = (coffee: Coffee): void => {
+        let updatedGroup = { ...shoppingCart };
+
+        if (!shoppingCart[coffee.name]) {
+            updatedGroup[coffee.name] = [coffee]
+
+            setShoppingCart(updatedGroup)
+
+            return
+        }
+       
+        updatedGroup[coffee.name] = [
+            ...updatedGroup[coffee.name],
+            coffee
+        ]
+
+        setShoppingCart(updatedGroup)
+
+        console.log('===>', shoppingCart)
+    };
 
     return (
         <CartContext.Provider value={{ 
-            coffeCart,
-            handleSetCart, 
+            coffeCart: coffeeCart,
+            shoppingCart,
+            addCoffeeInShoppingCart,
             removeItem: removeItemOfCart,
             paymentProviders 
         }}>
