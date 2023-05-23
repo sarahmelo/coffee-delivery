@@ -21,6 +21,7 @@ export type Coffee = {
     id: number;
     image: string;
     uuid?: number;
+    quantity: number;
 }
 
 export type CoffeeName = 
@@ -51,7 +52,8 @@ export const menuCoffee: Coffee[] = [
             "tradicional",
             "quente",
         ],
-        image: expresso
+        image: expresso,
+        quantity: 1,
     },
     {
         name: "Expresso Americano",
@@ -62,7 +64,8 @@ export const menuCoffee: Coffee[] = [
             "tradicional",
             "quente",
         ],
-        image: americano
+        image: americano,
+        quantity: 1
     },
     {
         name: "Expresso Cremoso",
@@ -73,7 +76,8 @@ export const menuCoffee: Coffee[] = [
             "tradicional",
             "quente",
         ],
-        image: expressoCremoso
+        image: expressoCremoso,
+        quantity: 1
     },
     {
         name: "Expresso Gelado",
@@ -84,7 +88,8 @@ export const menuCoffee: Coffee[] = [
             "tradicional",
             "gelado",
         ],
-        image: cafeGelado
+        image: cafeGelado,
+        quantity: 1
     },
     {
         name: "Café com Leite",
@@ -96,7 +101,8 @@ export const menuCoffee: Coffee[] = [
             "com leite",
             "quente",
         ],
-        image: cafeComLeite
+        image: cafeComLeite,
+        quantity: 1
     },
     {
         name: "Latte",
@@ -108,7 +114,8 @@ export const menuCoffee: Coffee[] = [
             "com leite",
             "quente",
         ],
-        image: latte
+        image: latte,
+        quantity: 1
     },
     {
         name: "Capuccino",
@@ -120,7 +127,8 @@ export const menuCoffee: Coffee[] = [
             "com leite",
             "quente",
         ],
-        image: capuccino
+        image: capuccino,
+        quantity: 1
     },
     {
         name: "Macchiato",
@@ -132,7 +140,8 @@ export const menuCoffee: Coffee[] = [
             "com leite",
             "quente",
         ],
-        image: macchiato
+        image: macchiato,
+        quantity: 1
     },
     {
         name: "Mocaccino",
@@ -144,7 +153,8 @@ export const menuCoffee: Coffee[] = [
             "com leite",
             "quente",
         ],
-        image: mochaccino
+        image: mochaccino,
+        quantity: 1
     },
     {
         name: "Chocolate Quente",
@@ -156,7 +166,8 @@ export const menuCoffee: Coffee[] = [
             "com leite",
             "quente",
         ],
-        image: chocolateQuente
+        image: chocolateQuente,
+        quantity: 1
     },
     {
         name: "Cubano",
@@ -168,7 +179,8 @@ export const menuCoffee: Coffee[] = [
             "alcoólico",  
             "gelado"    
         ],
-        image: cubano
+        image: cubano,
+        quantity: 1
     },
     {
         name: "Havaiano",
@@ -179,7 +191,8 @@ export const menuCoffee: Coffee[] = [
             "especial",
             "quente"    
         ],
-        image: havaiano
+        image: havaiano,
+        quantity: 1
     },
     {
         name: "Árabe",
@@ -190,7 +203,8 @@ export const menuCoffee: Coffee[] = [
             "especial",
             "quente",
         ],
-        image: arabe
+        image: arabe,
+        quantity: 1
     },
     {
         name: "Irlandês",
@@ -202,6 +216,7 @@ export const menuCoffee: Coffee[] = [
             "alcoólico",  
             "quente"
         ],
-        image: irlandes
+        image: irlandes,
+        quantity: 1
     },
 ]

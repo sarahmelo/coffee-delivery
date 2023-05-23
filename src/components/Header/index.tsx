@@ -6,7 +6,7 @@ import React from "react";
 import { useCart } from "../../contexts/CartContext";
 
 export function Header() {
-    const { coffeCart } = useCart()
+    const { shoppingCart } = useCart()
     
     return (
         <HeaderApp>
@@ -28,13 +28,12 @@ export function Header() {
                     <TranslucentButton 
                         backgroundColor="yellow-light" 
                         color="yellow-dark"
-                        disabled={coffeCart.length === 0}
                     >
                         <Chip
                             color="white" 
                             backgroundColor="yellow-dark"
                         >
-                            {coffeCart.length}
+                            {length}
                         </Chip>
                         <ShoppingCart 
                             size={22} 

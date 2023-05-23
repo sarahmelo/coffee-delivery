@@ -6,7 +6,7 @@ import { useCart } from "../../../../contexts/CartContext";
 type CardProps = { coffe: Coffee }
 
 export function Card({ coffe }: CardProps) {
-    const { handleSetCart } = useCart()
+    const { addCoffeeInShoppingCart: handleSetCart } = useCart()
 
     return (
         <CardContainer>

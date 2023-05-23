@@ -13,7 +13,7 @@ type CardCartProps = {
 }
 
 export function CardCart({ coffee }: CardCartProps) {
-    const { removeItem } = useCart();
+    const { removeItem, addCoffeeInShoppingCart } = useCart();
 
     return (
         <CardCartContainer>
@@ -27,7 +27,10 @@ export function CardCart({ coffee }: CardCartProps) {
                         {coffee.name}
                     </Text>
                     <ActionButtons>
-                        <CounterButton></CounterButton>
+                        <CounterButton
+                            sum={() => addCoffeeInShoppingCart(coffee)}
+                            subtract={() => removeItem(coffee)}
+                        ></CounterButton>
                         <Button
                             backgroundColor="neutral"
                             size="sm"
