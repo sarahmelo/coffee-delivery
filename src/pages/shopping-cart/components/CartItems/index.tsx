@@ -1,3 +1,4 @@
+import React from "react";
 import { useCart } from "../../../../contexts/CartContext";
 import { Coffee } from "../../../../contexts/menu";
 import { Button } from "../../../../libs/Button/style";
@@ -8,22 +9,41 @@ import { Text } from "../../../../libs/Text/style";
 import { CartItemsContainer, Divider, Footer, ListItems, PaymentNote, PaymentNoteInfo } from "./style";
 
 export function CartItems() {
-    const { coffeCart } = useCart()
+    const { shoppingCart } = useCart()
 
-    const sumSelectedItems = (): number => {
-        let sum: number = 0;
+    // const sumSelectedItems = (): number => {
+    //     let sum: number = 0;
 
-        coffeCart.map((coffe: Coffee) => {
-            const coffePrice: number = parseFloat(coffe.price.replace(',', '.'));
+    //     shoppingCart.map((coffe: Coffee) => {
+    //         const coffePrice: number = parseFloat(coffe.price.replace(',', '.'));
             
-            sum += coffePrice;
-        })
+    //         sum += coffePrice;
+    //     })
 
-        return sum
-    }
+    //     return sum
+    // }
 
-    const sumTotal = (): number => {
-        return sumSelectedItems() + 3.50
+    // const sumTotal = (): number => {
+    //     return sumSelectedItems() + 3.50
+    // }
+
+    const renderCoffeeList = (): React.ReactNode => {
+        const keys = Object.keys(shoppingCart)
+        const list = [];
+
+        for (let key of keys) {
+            const coffees: Coffee[] = shoppingCart[key]
+
+            list.push(
+                <CardCart 
+                    coffee={coffees[0]}
+                    key={coffees[0].id}  
+                    quantity={coffees.length}  
+                />
+            )
+        }
+
+        return list
     }
 
     return (
@@ -33,22 +53,13 @@ export function CartItems() {
                 hasHeader={false}
             >
                 <ListItems>
-                    {
-                        coffeCart.map((coffee) => {
-                            return (
-                                <>
-                                    <CardCart coffee={coffee} />
-                                    <Divider/>
-                                </>
-                            )
-                        })
-                    }
+                    {renderCoffeeList()}
                 </ListItems>
                 <Footer>
                     <PaymentNote>
                         <PaymentNoteInfo>
                             <Text fontSize="xs" color="base-text">Total de items</Text>
-                            <Text fontSize="xs" color="base-text" as={'p'}>R$ {sumSelectedItems()}</Text>
+                            <Text fontSize="xs" color="base-text" as={'p'}>R$ 11</Text>
                         </PaymentNoteInfo>
                         <PaymentNoteInfo>
                             <Text fontSize="xs" color="base-text">Entrega</Text>
@@ -56,7 +67,7 @@ export function CartItems() {
                         </PaymentNoteInfo>
                         <PaymentNoteInfo>
                             <Headline fontSize="xs" color="base-text">Total</Headline>
-                            <Headline fontSize="m" color="base-text">R$ {sumTotal()}</Headline>
+                            <Headline fontSize="m" color="base-text">R$ 11</Headline>
                         </PaymentNoteInfo>
                     </PaymentNote>
                     <Button size="lg" backgroundColor="yellow">

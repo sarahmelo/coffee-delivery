@@ -4,24 +4,26 @@ import { ActionButton, CounterButtonContainer } from "./style";
 import { Coffee } from "../../contexts/menu";
 
 export type CounterButtonProps = {
-    subtract: () => void;
-    sum: () => void;
+    removeCoffee: () => void;
+    addCoffee: () => void;
+    quantity: number;
 }
 
 export function CounterButton({
-    subtract,
-    sum,
+    removeCoffee,
+    addCoffee,
+    quantity,
 }: CounterButtonProps) {
     return (
         <CounterButtonContainer>
             <ActionButton
-                onClick={subtract}
+                onClick={removeCoffee}
             >
                 <Minus size={14} weight={'light'}/>
             </ActionButton>
-            <Text color="base-text" fontSize="xs">1</Text>
+            <Text color="base-text" fontSize="xs">{quantity}</Text>
             <ActionButton
-                onClick={sum}
+                onClick={addCoffee}
             >
                 <Plus size={14} weight={'light'}/>
             </ActionButton>

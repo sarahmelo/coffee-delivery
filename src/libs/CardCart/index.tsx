@@ -9,11 +9,19 @@ import { useCart } from "../../contexts/CartContext";
 import { Button } from "../Button/style";
 
 type CardCartProps = {
-    coffee: Coffee
+    coffee: Coffee,
+    quantity: number,
 }
 
-export function CardCart({ coffee }: CardCartProps) {
-    const { removeItem, addCoffeeInShoppingCart } = useCart();
+export function CardCart({ 
+    coffee,
+    quantity,
+}: CardCartProps) {
+    const {
+        removeCoffee, 
+        removeAllCoffee, 
+        addCoffee 
+} = useCart();
 
     return (
         <CardCartContainer>
@@ -28,13 +36,15 @@ export function CardCart({ coffee }: CardCartProps) {
                     </Text>
                     <ActionButtons>
                         <CounterButton
-                            sum={() => addCoffeeInShoppingCart(coffee)}
-                            subtract={() => removeItem(coffee)}
+                            key={coffee.uuid}
+                            addCoffee={() => addCoffee(coffee)}
+                            removeCoffee={() => removeCoffee(coffee)}
+                            quantity={quantity}
                         ></CounterButton>
                         <Button
                             backgroundColor="neutral"
                             size="sm"
-                            onClick={() => removeItem(coffee)}
+                            onClick={() => removeAllCoffee(coffee)}
                         >
                             <Trash 
                                 size={16} 

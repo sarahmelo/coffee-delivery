@@ -10,18 +10,17 @@ export const ToggleButtonContainer = styled.label`
     border: 0;
     border-radius: 6px;
     background-color: ${({ theme }) => theme.base['base-button']};
-    font-size: ${({ theme }) => theme.typography['text']['xs']};
     width: 100%;
     height: fit-content;
     text-transform: uppercase;
     align-items: center;
+`
+
+export const InvisableInput = styled.input`
+    display: none;
 
     :checked {
         border: 1px solid ${({ theme }) => theme.brand['purple']};
         background-color: ${({ theme }) => theme.brand['purple-light']};
     }
-`
-
-export const InvisableInput = styled.input`
-    display: none;
 ` 
