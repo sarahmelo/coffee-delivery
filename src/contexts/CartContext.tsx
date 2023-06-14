@@ -1,6 +1,7 @@
 import React, { createContext, ReactNode, useState } from "react";
 import { Bank, CreditCard, Money } from "@phosphor-icons/react";
 import { Coffee, CoffeeName } from "./menu";
+import { count } from "console";
 
 type Payment = 'cartão de crédito' | 'cartão de débito' | 'dinheiro'
 type PaymentProviderProps = {
@@ -34,6 +35,7 @@ type CoffeDeliveryContextData = {
     addCoffee: (coffee: Coffee) => void,
     removeCoffee: (coffee: Coffee) => void,
     removeAllCoffee: (coffee: Coffee) => void,
+    addQuantityCoffee: (coffee: Coffee, counter: number) => void,
     paymentProviders: PaymentProviderProps[],
 }
 
@@ -43,7 +45,8 @@ export const CartContext = createContext<CoffeDeliveryContextData>({
     addCoffee: () => { },
     removeCoffee: () => { },
     removeAllCoffee: () => { },
-    paymentProviders: paymentProviders,
+    addQuantityCoffee: () => { },
+    paymentProviders,
 })
 
 export const CartProvider = ({ children }: CoffeDeliveryProviderProps) => {
@@ -90,13 +93,36 @@ export const CartProvider = ({ children }: CoffeDeliveryProviderProps) => {
         setShoppingCart(updatedGroup)
     };
 
+    const addQuantityCoffee = (coffee: Coffee, counter: number): void => {
+        let updatedGroup = { ...shoppingCart };
+       
+        for (let i: number = 0; i < counter; i++) {
+            let updatedCoffee: Coffee = {
+                ...coffee,
+                uuid: Math.random()
+            }
+
+            if (!updatedGroup[updatedCoffee.name]) {
+                updatedGroup[updatedCoffee.name] = [];
+            }
+
+            updatedGroup[updatedCoffee.name] = [
+                ...updatedGroup[updatedCoffee.name],
+                updatedCoffee
+            ]
+
+            setShoppingCart(updatedGroup)
+        }
+    }
+
     return (
         <CartContext.Provider value={{ 
             shoppingCart,
             addCoffee,
             removeCoffee,
             removeAllCoffee,
-            paymentProviders 
+            paymentProviders,
+            addQuantityCoffee,
         }}>
             {children}
         </CartContext.Provider>

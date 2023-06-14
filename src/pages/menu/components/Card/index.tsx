@@ -2,41 +2,59 @@ import { ActionsButtons, Add, BottomActions, CardContainer, CoffeeImage, Count, 
 import { Minus, Plus, ShoppingCartSimple } from "@phosphor-icons/react";
 import { Coffee, Flag } from "../../../../contexts/menu";
 import { useCart } from "../../../../contexts/CartContext";
+import { CounterButton } from "../../../../libs/CounterButton";
+import { useState } from "react";
 
-type CardProps = { coffe: Coffee }
+type CardProps = { coffee: Coffee }
 
-export function Card({ coffe }: CardProps) {
-    const { addCoffee: handleSetCart } = useCart()
+export function Card({ coffee }: CardProps) {
+    const { addCoffee, addQuantityCoffee } = useCart();
+    const [counter, setCounter] = useState(1);
+
+    const addQuantityOfCoffee = (): void => {
+        let newCounter = counter + 1;
+
+        setCounter(newCounter)
+    }
+
+    const removeQuantityOfCoffee = (): void => {
+        if (counter === 1) {
+            return
+        }
+
+        let newCounter = counter - 1;
+
+        setCounter(newCounter)
+    }
 
     return (
         <CardContainer>
-            <CoffeeImage src={coffe.image}>
+            <CoffeeImage src={coffee.image}>
                 
             </CoffeeImage>
             <FlagContainer>
-                {coffe.tag.map((flag: Flag) => {
+                {coffee.tag.map((flag: Flag) => {
                     return (
                         <Tag key={flag}>{flag}</Tag>
                     )
                 })}
             </FlagContainer>
-            <Title>{coffe.name}</Title>
-            <Subtitle>{coffe.description}</Subtitle>
+            <Title>{coffee.name}</Title>
+            <Subtitle>{coffee.description}</Subtitle>
             <BottomActions>
                 <Price>
-                    {coffe.price}
+                    {coffee.price}
                 </Price>
                 <ActionsButtons>
-                    <CounterContainer>
-                        <Remove>
-                            <Minus size={14} weight={'light'}/>
-                        </Remove>
-                        <Count>1</Count>
-                        <Add>
-                            <Plus size={14} weight={'light'}/>
-                        </Add>
-                    </CounterContainer>
-                    <SquareButton onClick={(e) => handleSetCart(coffe)}>
+                {
+                    <CounterButton
+                        key={coffee.uuid}
+                        addCoffee={() => addQuantityOfCoffee()}
+                        removeCoffee={() => removeQuantityOfCoffee()}
+                        quantity={counter}
+                    ></CounterButton>
+                }
+                    <SquareButton onClick={(e) => addQuantityCoffee(coffee, counter)}>
                         <ShoppingCartSimple size={22} weight={"fill"}/>
                     </SquareButton>
                 </ActionsButtons>

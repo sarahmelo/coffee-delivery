@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const CartItemsContainer = styled.div`
     width: 100%;
-    max-width: 448px;
 `
 
 

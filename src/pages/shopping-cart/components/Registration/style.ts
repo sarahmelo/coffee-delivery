@@ -27,6 +27,11 @@ export const Input = styled.input<InputProps>`
     background-color: ${({ theme }) => theme.base['base-input']};
     width: 100%;
     max-width: ${({ inputSize }) => InputSize[inputSize] };
+    outline: 0;
+
+    :focus {
+        border: 1px solid ${({ theme }) => theme.brand['purple']};
+    }
 `
 
 export const Fields = styled.div`

@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const CardCartContainer = styled.div`
     display: flex;
-    padding: 8px;
+    padding: 8px 0;
     align-items: flex-start;
     width: 100%;
-    gap: 40px;
+    gap: 20px;
 
     @media (max-width: 1145px) {
         gap: 16px;

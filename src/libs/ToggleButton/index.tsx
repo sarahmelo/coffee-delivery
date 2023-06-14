@@ -1,27 +1,39 @@
-import { ReactNode, useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { InvisableInput, ToggleButtonContainer } from "./styled";
 import { Text } from "../Text/style";
 
 type ToggleButtonProps = {
-    label: string;
+    name: string;
     icon: ReactNode;
-    id: string;
+    isChecked: boolean;
+    onChangeEvent: () => void;
 }
 
 export const ToggleButton = ({ 
-    label, 
+    name, 
     icon,
-    id,
-}: ToggleButtonProps): JSX.Element => {
-    const [isActive, setIsActive] = useState<boolean>(false)
-
+    isChecked,
+    onChangeEvent,
+}: ToggleButtonProps) => {
     return (
         <>
-            <ToggleButtonContainer htmlFor={id}>
+            <ToggleButtonContainer 
+                htmlFor={name}
+                isChecked={isChecked}
+            >
                 {icon}
-                <Text color="base-text" fontSize="xxs" as={'p'}>{label}</Text>
+                <Text 
+                    color="base-text" 
+                    fontSize="xs" 
+                    as={'p'}
+                >{name}</Text>
             </ToggleButtonContainer>
-            <InvisableInput type="radio" id={id} onChange={(e) => console.log(e)}/>
+            <InvisableInput 
+                type="radio" 
+                id={name} 
+                checked={isChecked}
+                onChange={() => onChangeEvent()}
+            />
         </>
     )
 }

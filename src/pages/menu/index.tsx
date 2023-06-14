@@ -18,7 +18,7 @@ export function Menu() {
                         return (
                             <Card
                                 key={coffe.id}
-                                coffe={coffe}
+                                coffee={coffe}
                             ></Card>
                         )
                     }) }
