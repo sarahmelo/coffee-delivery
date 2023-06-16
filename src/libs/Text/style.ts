@@ -5,11 +5,11 @@ type Typography = DefaultTheme['typography']
 
 type TextProps = {
     fontSize: keyof Typography['text'],
-    color: keyof Typography['color']
+    color: keyof DefaultTheme['brand']
 }
 
 export const Text = styled.div<TextProps>`
     font-size: ${({ theme, fontSize }) => theme.typography.text[fontSize] };
-    color: ${({ theme , color }) =>  theme.typography.color[color] };
+    color: ${({ theme , color }) =>  theme.brand[color] };
     font-family: 'Roboto', sans-serif;
 `

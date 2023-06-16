@@ -10,7 +10,10 @@ export const defaultTheme = {
         'background': '#FAFAFA',
         'white': '#FFFFFF',
         'neutral': '#E6E5E5',
-        'base-button': '#E6E5E5'
+        'base-button': '#E6E5E5',
+        'base-title': '#272221',
+        'base-subtitle': '#403937',
+        'base-label': '#8D8686',
     },
     base: {
         'base-hover': '#272221',
