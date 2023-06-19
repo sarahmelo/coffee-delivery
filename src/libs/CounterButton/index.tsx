@@ -1,7 +1,6 @@
 import { Minus, Plus } from "@phosphor-icons/react";
 import { Text } from "../Text/style";
 import { ActionButton, CounterButtonContainer } from "./style";
-import { Coffee } from "../../contexts/menu";
 
 export type CounterButtonProps = {
     removeCoffee: () => void;

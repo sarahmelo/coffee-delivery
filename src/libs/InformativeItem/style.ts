@@ -7,6 +7,7 @@ export type IconContainerProps = {
 export const InformativeItemContainer = styled.div`
     display: flex;
     align-items: center;
+    gap: 8px;
 `
 
 export const TextContainer = styled.div`

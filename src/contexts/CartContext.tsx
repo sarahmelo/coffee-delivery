@@ -1,30 +1,14 @@
 import React, { createContext, ReactNode, useState } from "react";
 import { Bank, CreditCard, Money } from "@phosphor-icons/react";
-import { Coffee, CoffeeName } from "./menu";
-import { count } from "console";
-
-type Payment = 'cartão de crédito' | 'cartão de débito' | 'dinheiro'
-type PaymentProviderProps = {
-    name: Payment,
-    icon: ReactNode,   
-}
-
-type CoffeeGroup = { [name: string]: Coffee[] }
-
-const paymentProviders: PaymentProviderProps[] = [
-    {
-        name: 'cartão de crédito',
-        icon: <CreditCard size={16} color="#8047F8"/>
-    },
-    {
-        name: 'cartão de débito',
-        icon: <Bank size={16} color="#8047F8"/>
-    },
-    {
-        name: 'dinheiro',
-        icon: <Money size={16} color="#8047F8"/>
-    }
-]
+import { FormikProps } from 'formik'
+import { formBuild, FormBuildProps } from "./setup/form";
+import { Coffee, CoffeeGroup } from "./type/coffee.types";
+import { addCoffee } from "./features/add-one-coffee";
+import { removeCoffee } from "./features/remove-coffee";
+import { removeAllCoffee } from "./features/remove-all-coffee-group";
+import { addAmountOfCoffee } from "./features/add-amount-of-coffee";
+import { PaymentProviderProps } from "./type/payment-providers.types";
+import { paymentProviders } from "./setup/payment-provider";
 
 type CoffeDeliveryProviderProps = {
     children: ReactNode,
@@ -32,97 +16,42 @@ type CoffeDeliveryProviderProps = {
 
 type CoffeDeliveryContextData = {
     shoppingCart: CoffeeGroup,
+    setShoppingCartFn: (group: CoffeeGroup) => void;
     addCoffee: (coffee: Coffee) => void,
     removeCoffee: (coffee: Coffee) => void,
     removeAllCoffee: (coffee: Coffee) => void,
-    addQuantityCoffee: (coffee: Coffee, counter: number) => void,
+    addAmountOfCoffee: (coffee: Coffee, counter: number) => void,
     paymentProviders: PaymentProviderProps[],
+    formBuild: FormikProps<FormBuildProps>,
 }
 
 
 export const CartContext = createContext<CoffeDeliveryContextData>({
     shoppingCart: { },
+    setShoppingCartFn: () => { },
     addCoffee: () => { },
     removeCoffee: () => { },
     removeAllCoffee: () => { },
-    addQuantityCoffee: () => { },
-    paymentProviders,
+    addAmountOfCoffee: () => { },
+    paymentProviders: [],
+    formBuild: { } as FormikProps<FormBuildProps>,
 })
 
 export const CartProvider = ({ children }: CoffeDeliveryProviderProps) => {
     const [shoppingCart, setShoppingCart] = useState<CoffeeGroup>({ })
-    
-    const removeCoffee = (coffee: Coffee): void => {
-        let updatedShoppingCart: CoffeeGroup = { ...shoppingCart };
-        updatedShoppingCart[coffee.name] = updatedShoppingCart[coffee.name].filter((item) => item.uuid !== coffee.uuid)
 
-        if (updatedShoppingCart[coffee.name].length === 0) {
-            delete updatedShoppingCart[coffee.name]
-        }
-
-        setShoppingCart(updatedShoppingCart)
-    }
-
-    const removeAllCoffee = (coffee: Coffee): void => {
-        let updatedShoppingCart: CoffeeGroup = { ...shoppingCart };
-        delete updatedShoppingCart[coffee.name]
-
-        setShoppingCart(updatedShoppingCart)
-    }
-
-    const addCoffee = (coffee: Coffee): void => {
-        let updatedGroup = { ...shoppingCart };
-        let updatedCoffee: Coffee = {
-            ...coffee,
-            uuid: Math.random()
-        }
-
-        if (!shoppingCart[updatedCoffee.name]) {
-            updatedGroup[updatedCoffee.name] = [updatedCoffee]
-
-            setShoppingCart(updatedGroup)
-
-            return
-        }
-       
-        updatedGroup[updatedCoffee.name] = [
-            ...updatedGroup[updatedCoffee.name],
-            updatedCoffee
-        ]
-
-        setShoppingCart(updatedGroup)
-    };
-
-    const addQuantityCoffee = (coffee: Coffee, counter: number): void => {
-        let updatedGroup = { ...shoppingCart };
-       
-        for (let i: number = 0; i < counter; i++) {
-            let updatedCoffee: Coffee = {
-                ...coffee,
-                uuid: Math.random()
-            }
-
-            if (!updatedGroup[updatedCoffee.name]) {
-                updatedGroup[updatedCoffee.name] = [];
-            }
-
-            updatedGroup[updatedCoffee.name] = [
-                ...updatedGroup[updatedCoffee.name],
-                updatedCoffee
-            ]
-
-            setShoppingCart(updatedGroup)
-        }
-    }
+    const setShoppingCartFn = (group: CoffeeGroup) => setShoppingCart(group)
 
     return (
         <CartContext.Provider value={{ 
             shoppingCart,
+            setShoppingCartFn,
             addCoffee,
             removeCoffee,
             removeAllCoffee,
             paymentProviders,
-            addQuantityCoffee,
+            addAmountOfCoffee,
+            formBuild,
         }}>
             {children}
         </CartContext.Provider>

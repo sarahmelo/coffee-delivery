@@ -1,12 +1,12 @@
 import React from "react";
 import { useCart } from "../../../../contexts/CartContext";
-import { Coffee } from "../../../../contexts/menu";
 import { Button } from "../../../../libs/Button/style";
 import { CardCart } from "../../../../libs/CardCart";
-import { Form } from "../../../../libs/Form";
+import { FormCard } from "../../../../libs/Form";
 import { Headline } from "../../../../libs/Headline/style";
 import { Text } from "../../../../libs/Text/style";
 import { CartItemsContainer, Divider, Footer, ListItems, PaymentNote, PaymentNoteInfo } from "./style";
+import { Coffee } from "../../../../contexts/type/coffee.types";
 
 export function CartItems() {
     const { shoppingCart } = useCart();
@@ -50,11 +50,10 @@ export function CartItems() {
 
     return (
         <CartItemsContainer>
-            <Form 
+            <FormCard 
                 border="semi-rounded"
                 hasHeader={false}
             >
-                {}
                 <ListItems>
                     {renderCoffeeList()}
                 </ListItems>
@@ -77,7 +76,7 @@ export function CartItems() {
                         <Text color="neutral" fontSize="s">Confirmar Pedido</Text>
                     </Button>
                 </Footer>
-            </Form>
+            </FormCard>
         </CartItemsContainer>
     )
 }

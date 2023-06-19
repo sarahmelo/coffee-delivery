@@ -41,7 +41,8 @@ export const TranslucentButton = styled.button<ColorsProps>`
     color: ${({ theme, color }) => theme.brand[color]};
     border: 0;
     border-radius: 6px;
-    font-size: 14px;
+    font-size: 12px;
+    text-decoration: none;
 
     cursor: pointer;
 `

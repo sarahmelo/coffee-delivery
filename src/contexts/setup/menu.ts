@@ -1,46 +1,18 @@
-import expresso from '../assets/menu/americano.svg'
-import americano from '../assets/menu/americano.svg'
-import arabe from '../assets/menu/árabe.svg'
-import cafeComLeite from '../assets/menu/café-com-leite.svg'
-import cafeGelado from '../assets/menu/café-gelado.svg'
-import capuccino from '../assets/menu/capuccino.svg'
-import chocolateQuente from '../assets/menu/chocolate-quente.svg'
-import cubano from '../assets/menu/cubano.svg'
-import expressoCremoso from '../assets/menu/expresso-cremoso.svg'
-import havaiano from '../assets/menu/havaiano.svg'
-import irlandes from '../assets/menu/irlandês.svg'
-import latte from '../assets/menu/latte.svg'
-import macchiato from '../assets/menu/macchiato.svg'
-import mochaccino from '../assets/menu/mochaccino.svg'
-
-export type Coffee = {
-    name: CoffeeName;
-    tag: Flag[];
-    description: string;
-    price: string;
-    id: number;
-    image: string;
-    uuid?: number;
-    quantity: number;
-}
-
-export type CoffeeName = 
-    "Expresso Tradicional" | 
-    "Expresso Americano" | 
-    "Expresso Cremoso" |
-    "Expresso Gelado" |
-    "Café com Leite" |
-    "Latte" | 
-    "Capuccino" |
-    "Macchiato" |
-    "Mocaccino" |
-    "Chocolate Quente" |
-    "Cubano" |
-    "Havaiano" |
-    "Árabe" |
-    "Irlandês"
-
-export type Flag = "quente" | "gelado" | "tradicional" | "com leite" | "especial" | "alcoólico"
+import expresso from '../../assets/menu/americano.svg'
+import americano from '../../assets/menu/americano.svg'
+import arabe from '../../assets/menu/árabe.svg'
+import cafeComLeite from '../../assets/menu/café-com-leite.svg'
+import cafeGelado from '../../assets/menu/café-gelado.svg'
+import capuccino from '../../assets/menu/capuccino.svg'
+import chocolateQuente from '../../assets/menu/chocolate-quente.svg'
+import cubano from '../../assets/menu/cubano.svg'
+import expressoCremoso from '../../assets/menu/expresso-cremoso.svg'
+import havaiano from '../../assets/menu/havaiano.svg'
+import irlandes from '../../assets/menu/irlandês.svg'
+import latte from '../../assets/menu/latte.svg'
+import macchiato from '../../assets/menu/macchiato.svg'
+import mochaccino from '../../assets/menu/macchiato.svg'
+import { Coffee } from '../type/coffee.types'
 
 export const menuCoffee: Coffee[] = [
     {

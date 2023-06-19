@@ -1,9 +1,13 @@
-import styled from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
+
+type GradientBorderProps = {
+    background: keyof DefaultTheme['brand']
+}
 
 export const ConfirmedOrderContainer = styled.div`
     width: 100%;
-
     display: flex;
+    justify-content: space-between
 `
 
 export const Informations = styled.div`
@@ -17,9 +21,12 @@ export const TextCollumn = styled.div`
     flex-direction: column;
 `
 
-export const GradientBorderBox = styled.div`
-    padding: 40px;
-    border: 1px solid;
-    border-image: linear-gradient(102.89deg, #DBAC2C 2.61%, #8047F8 98.76%);    
-    border-image-slice: 1;
+export const InformativeCardItemContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+`
+
+export const Illustration = styled.img`
+
 `

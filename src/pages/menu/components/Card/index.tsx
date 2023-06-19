@@ -1,23 +1,23 @@
 import { ActionsButtons, Add, BottomActions, CardContainer, CoffeeImage, Count, CounterContainer, FlagContainer, Price, Remove, SquareButton, Subtitle, Tag, Title } from "./style";
-import { Minus, Plus, ShoppingCartSimple } from "@phosphor-icons/react";
-import { Coffee, Flag } from "../../../../contexts/menu";
+import { ShoppingCartSimple } from "@phosphor-icons/react";
 import { useCart } from "../../../../contexts/CartContext";
 import { CounterButton } from "../../../../libs/CounterButton";
 import { useState } from "react";
+import { Coffee, Flag } from "../../../../contexts/type/coffee.types";
 
 type CardProps = { coffee: Coffee }
 
 export function Card({ coffee }: CardProps) {
-    const { addCoffee, addQuantityCoffee } = useCart();
+    const { addAmountOfCoffee } = useCart();
     const [counter, setCounter] = useState(1);
 
-    const addQuantityOfCoffee = (): void => {
+    const add = (): void => {
         let newCounter = counter + 1;
 
         setCounter(newCounter)
     }
 
-    const removeQuantityOfCoffee = (): void => {
+    const decrease = (): void => {
         if (counter === 1) {
             return
         }
@@ -49,12 +49,12 @@ export function Card({ coffee }: CardProps) {
                 {
                     <CounterButton
                         key={coffee.uuid}
-                        addCoffee={() => addQuantityOfCoffee()}
-                        removeCoffee={() => removeQuantityOfCoffee()}
+                        addCoffee={() => add()}
+                        removeCoffee={() => decrease()}
                         quantity={counter}
                     ></CounterButton>
                 }
-                    <SquareButton onClick={(e) => addQuantityCoffee(coffee, counter)}>
+                    <SquareButton onClick={(e) => addAmountOfCoffee(coffee, counter)}>
                         <ShoppingCartSimple size={22} weight={"fill"}/>
                     </SquareButton>
                 </ActionsButtons>

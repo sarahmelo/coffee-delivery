@@ -2,7 +2,7 @@ import { FormContainer, HeaderForm, TextContainer } from "./style";
 import { Text } from "../Text/style";
 import { FormProps } from "./form.types";
 
-export function Form({
+export function FormCard({
     border,
     hasHeader,
     children,

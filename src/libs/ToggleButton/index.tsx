@@ -3,22 +3,24 @@ import { InvisableInput, ToggleButtonContainer } from "./styled";
 import { Text } from "../Text/style";
 
 type ToggleButtonProps = {
-    name: string;
+    payment: string;
     icon: ReactNode;
     isChecked: boolean;
+    name: string;
     onChangeEvent: () => void;
 }
 
 export const ToggleButton = ({ 
-    name, 
+    payment, 
     icon,
     isChecked,
     onChangeEvent,
+    name,
 }: ToggleButtonProps) => {
     return (
         <>
             <ToggleButtonContainer 
-                htmlFor={name}
+                htmlFor={payment}
                 isChecked={isChecked}
             >
                 {icon}
@@ -26,12 +28,13 @@ export const ToggleButton = ({
                     color="base-text" 
                     fontSize="xs" 
                     as={'p'}
-                >{name}</Text>
+                >{payment}</Text>
             </ToggleButtonContainer>
             <InvisableInput 
                 type="radio" 
-                id={name} 
+                id={payment} 
                 checked={isChecked}
+                name={name}
                 onChange={() => onChangeEvent()}
             />
         </>

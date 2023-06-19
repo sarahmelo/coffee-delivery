@@ -1,5 +1,4 @@
 import { Trash } from "@phosphor-icons/react";
-import { Coffee } from "../../contexts/menu";
 import { CounterButton } from "../CounterButton";
 import { Text } from "../Text/style";
 import { ActionButtons, CardCartContainer, CoffeeInfoContainer, CounterActionsContainer, Image } from "./style";
@@ -7,6 +6,7 @@ import { ActionButton } from "../CounterButton/style";
 import { Headline } from "../Headline/style";
 import { useCart } from "../../contexts/CartContext";
 import { Button } from "../Button/style";
+import { Coffee } from "../../contexts/type/coffee.types";
 
 type CardCartProps = {
     coffee: Coffee,

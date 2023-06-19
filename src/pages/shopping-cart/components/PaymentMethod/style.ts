@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const PaymentMethodContent = styled.div`
+export const PaymentMethodForm = styled.form`
     display: flex;
     gap: 12px;
     max-width: 100%;

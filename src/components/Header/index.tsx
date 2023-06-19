@@ -4,6 +4,7 @@ import logo from '../../assets/logo.svg'
 import { Link } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useCart } from "../../contexts/CartContext";
+import { Text } from "../../libs/Text/style";
 
 export function Header() {
     const { shoppingCart } = useCart()
@@ -32,16 +33,20 @@ export function Header() {
                 <Logo src={logo} alt=""/>
             </Link>
             <NavigationContent>
-                <TranslucentButton 
-                    backgroundColor="purple-light" 
-                    color="purple"
-                >
-                    <MapPin 
-                        size={22}
-                        weight={"fill"}
-                    />
-                    Porto Alegre, RS
-                </TranslucentButton>
+                <Link to={'https://github.com/sarahmelo'} >
+                    <TranslucentButton 
+                        backgroundColor="purple-light" 
+                        color="purple"
+                    >
+                        <MapPin 
+                            size={22}
+                            weight={"fill"}
+                        />
+                        <Text color="purple" fontSize="xs" as={'a'}>
+                            github.com/sarahmelo
+                        </Text>
+                    </TranslucentButton>
+                </Link>
                 {
                     hasItemInShoppingCart() ?
                     <Link to={'/shopping-cart'}>
