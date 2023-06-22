@@ -6,7 +6,7 @@ import { FormCard } from "../../../../libs/Form";
 import { Headline } from "../../../../libs/Headline/style";
 import { Text } from "../../../../libs/Text/style";
 import { CartItemsContainer, Divider, Footer, ListItems, PaymentNote, PaymentNoteInfo } from "./style";
-import { Coffee } from "../../../../contexts/type/coffee.types";
+import { Coffee } from "../../../../contexts/types/coffee.types";
 
 export function CartItems() {
     const { shoppingCart } = useCart();

@@ -6,32 +6,19 @@ export const BannerContainer = styled.section`
     align-items: center;
     gap: 77px;
     
-    padding: 92px 0;
+    padding-bottom: 92px;
     max-width: 1120px;
     margin: 0 auto;
 `
-
-export const Title = styled.h2`
-    font-size: 48px;
-    font-family: 'Baloo 2', cursive;
-    font-weight: 800;
-    line-height: 130%;
-
-    color: ${(props) => props.theme.typography.color['base-title']};
-`
-
-export const SubTitle = styled.h4`
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 130%;
-    margin-bottom: 66px;
-
-    color: ${(props) => props.theme.typography.color['base-subtitle']};
+export const TextContainer = styled.section`
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
 `
 
 export const CoffeeIllustration = styled.img`
-    width: 476px;
+    width: 400px;
 
     @media (max-width: 1145px) {
         display: none;
@@ -42,7 +29,6 @@ export const ListItems = styled.ul`
     list-style: none;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    max-width: 567px;
 
 
     @media (max-width: 1145px) {
@@ -81,4 +67,12 @@ export const IconContainer = styled.div<ColorsProps>`
     height: 32px;
     
     background-color: ${({theme, color}) => theme.brand[color]};
+`
+
+export const Background = styled.img`
+    height: 40%;
+    width: 100%;
+    z-index: -1;
+    display: block;
+    position: absolute;
 `

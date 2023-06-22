@@ -12,7 +12,7 @@ import irlandes from '../../assets/menu/irlandês.svg'
 import latte from '../../assets/menu/latte.svg'
 import macchiato from '../../assets/menu/macchiato.svg'
 import mochaccino from '../../assets/menu/macchiato.svg'
-import { Coffee } from '../type/coffee.types'
+import { Coffee } from '../types/coffee.types'
 
 export const menuCoffee: Coffee[] = [
     {

@@ -28,3 +28,18 @@ export const PaymentRegister = styled.div`
     gap: 12px;
     width: 100%;
 `
+
+export const EmptyShoppingCart = styled.div`
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 50px;
+
+    div {
+        display: block;
+    }
+`

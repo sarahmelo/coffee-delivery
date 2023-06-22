@@ -1,5 +1,5 @@
 import { menuCoffee } from "../../contexts/setup/menu";
-import { Coffee } from "../../contexts/type/coffee.types";
+import { Coffee } from "../../contexts/types/coffee.types";
 import { Banner } from "./components/Banner";
 import { Card } from "./components/Card";
 import { MenuContainer, MenuItems, MenuTitle } from "./style";

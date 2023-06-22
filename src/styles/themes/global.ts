@@ -16,6 +16,10 @@ export const GlobalStyle = createGlobalStyle`
 
     body { 
         overflow: overlay;
+
+        ::-webkit-scrollbar {
+            width: 0;
+        }
     }
 
     body, button {

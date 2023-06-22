@@ -3,12 +3,12 @@ import { ShoppingCartSimple } from "@phosphor-icons/react";
 import { useCart } from "../../../../contexts/CartContext";
 import { CounterButton } from "../../../../libs/CounterButton";
 import { useState } from "react";
-import { Coffee, Flag } from "../../../../contexts/type/coffee.types";
+import { Coffee, Flag } from "../../../../contexts/types/coffee.types";
 
 type CardProps = { coffee: Coffee }
 
 export function Card({ coffee }: CardProps) {
-    const { addAmountOfCoffee } = useCart();
+    const { addCoffee } = useCart();
     const [counter, setCounter] = useState(1);
 
     const add = (): void => {
@@ -54,7 +54,7 @@ export function Card({ coffee }: CardProps) {
                         quantity={counter}
                     ></CounterButton>
                 }
-                    <SquareButton onClick={(e) => addAmountOfCoffee(coffee, counter)}>
+                    <SquareButton onClick={(e) => addCoffee(coffee, counter)}>
                         <ShoppingCartSimple size={22} weight={"fill"}/>
                     </SquareButton>
                 </ActionsButtons>

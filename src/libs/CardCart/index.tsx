@@ -6,7 +6,7 @@ import { ActionButton } from "../CounterButton/style";
 import { Headline } from "../Headline/style";
 import { useCart } from "../../contexts/CartContext";
 import { Button } from "../Button/style";
-import { Coffee } from "../../contexts/type/coffee.types";
+import { Coffee } from "../../contexts/types/coffee.types";
 
 type CardCartProps = {
     coffee: Coffee,

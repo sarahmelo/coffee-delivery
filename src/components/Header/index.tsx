@@ -33,7 +33,7 @@ export function Header() {
                 <Logo src={logo} alt=""/>
             </Link>
             <NavigationContent>
-                <Link to={'https://github.com/sarahmelo'} >
+                <Link to={'https://github.com/sarahmelo'} style={{ textDecoration: 'none' }}>
                     <TranslucentButton 
                         backgroundColor="purple-light" 
                         color="purple"

@@ -1,5 +1,5 @@
 import { Bank, CreditCard, Money } from "@phosphor-icons/react";
-import { PaymentProviderProps } from "../type/payment-providers.types"
+import { PaymentProviderProps } from "../types/payment-providers.types"
 
 export const paymentProviders: PaymentProviderProps[] = [
     {
