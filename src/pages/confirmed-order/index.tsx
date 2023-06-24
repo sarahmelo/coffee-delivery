@@ -6,13 +6,15 @@ import { ConfirmedOrderContainer, Illustration, Informations, InformativeCardIte
 import { CurrencyCny, CurrencyDollar, MapPin, Money, Timer } from "@phosphor-icons/react";
 import { Card } from "../../libs/Card/style";
 import deliveryManIllustration from '../../assets/Illustration.svg'
+import { useCart } from "../../contexts/CartContext";
 
 export function ConfirmedOrder() {
+    const { deliveryAddress } = useCart();
 
     const Address = (): ReactNode => {
         return (
             <Text color="base-subtitle" fontSize="s" as={'p'}>
-                Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
+                Entrega em <strong>{deliveryAddress.roal}, {deliveryAddress.number} - {deliveryAddress.complement}</strong>
             </Text>
         )
     }
@@ -20,7 +22,7 @@ export function ConfirmedOrder() {
     const MoreInfoByAddress = (): ReactNode => {
         return (
             <Text color="base-subtitle" fontSize="s" as={'p'}>
-                Farrapos, Porto Alegre - RS
+                { deliveryAddress.neighborhood }, {deliveryAddress.city} - {deliveryAddress.uf}
             </Text>
         )
     }
@@ -66,7 +68,7 @@ export function ConfirmedOrder() {
                             }
                             secondText={ 
                                 <Text color="base-text" fontSize="s">
-                                    <strong>Cartão de Crédito</strong>
+                                    <strong>{deliveryAddress.paymentSelected}</strong>
                                 </Text> 
                             }
                             icon={<CurrencyDollar size={16}></CurrencyDollar>}

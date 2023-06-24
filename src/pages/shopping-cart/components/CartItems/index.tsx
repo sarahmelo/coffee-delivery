@@ -7,9 +7,10 @@ import { Headline } from "../../../../libs/Headline/style";
 import { Text } from "../../../../libs/Text/style";
 import { CartItemsContainer, Divider, Footer, ListItems, PaymentNote, PaymentNoteInfo } from "./style";
 import { Coffee } from "../../../../contexts/types/coffee.types";
+import { Link } from "react-router-dom";
 
 export function CartItems() {
-    const { shoppingCart } = useCart();
+    const { shoppingCart, setShoppingCartFn } = useCart();
 
     const renderCoffeeList = (): React.ReactNode => {
         const keys = Object.keys(shoppingCart)
@@ -72,9 +73,11 @@ export function CartItems() {
                             <Headline fontSize="m" color="base-text">R$ {getTotalWithRate()}</Headline>
                         </PaymentNoteInfo>
                     </PaymentNote>
-                    <Button size="lg" backgroundColor="yellow">
-                        <Text color="neutral" fontSize="s">Confirmar Pedido</Text>
-                    </Button>
+                    <Link to={'/confirmed-order'} style={{ textDecoration: 'none' }}>
+                        <Button size="lg" backgroundColor="yellow" onClick={() => setShoppingCartFn({})}>
+                            <Text color="neutral" fontSize="s">Confirmar Pedido</Text>
+                        </Button>
+                    </Link>
                 </Footer>
             </FormCard>
         </CartItemsContainer>

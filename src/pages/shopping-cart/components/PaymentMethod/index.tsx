@@ -4,15 +4,27 @@ import { PaymentMethodForm } from "./style";
 import { ToggleButton } from "../../../../libs/ToggleButton";
 import { useCart } from "../../../../contexts/CartContext";
 import { useState } from "react";
+import { DeliveryAddress } from "../../../../contexts/types/delivery-address";
 
 export function PaymentMethod() {
     const [selectedOption, setSelectedOption] = useState('');
 
+    const { setDeliveryAddressFn, deliveryAddress } = useCart();
 
+    const addNewValue = (name: keyof DeliveryAddress, value: string): void => {
+        const deliveryAddressWithNewValue: DeliveryAddress = {
+            ...deliveryAddress,
+            [name]: value
+        }
+
+        setDeliveryAddressFn(deliveryAddressWithNewValue)
+    }
+    
     const handleCheckInput = (
        option: string
     ) => {
         setSelectedOption(option)
+        addNewValue('paymentSelected',option)
     }
 
     const enum paymentMade {

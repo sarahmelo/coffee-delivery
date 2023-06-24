@@ -49,7 +49,7 @@ export function Header() {
                 </Link>
                 {
                     hasItemInShoppingCart() ?
-                    <Link to={'/shopping-cart'}>
+                    <Link to={'/shopping-cart'} style={{ textDecoration: 'none' }}>
                         <TranslucentButton 
                             backgroundColor="yellow-light" 
                             color="yellow-dark"
