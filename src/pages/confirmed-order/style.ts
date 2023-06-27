@@ -28,5 +28,7 @@ export const InformativeCardItemContainer = styled.div`
 `
 
 export const Illustration = styled.img`
-
+    @media (max-width: 1145px) {
+        display: none;
+    }
 `
