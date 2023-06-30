@@ -70,7 +70,7 @@ export const CartProvider = ({ children }: CoffeDeliveryProviderProps) => {
     const removeCoffee = (coffee: Coffee): void => {
         let updatedShoppingCart: CoffeeGroup = { ...shoppingCart };
         
-        updatedShoppingCart[coffee.name] = updatedShoppingCart[coffee.name].filter((item) => item.uuid !== coffee.uuid)
+        updatedShoppingCart[coffee.name].pop();
     
         if (updatedShoppingCart[coffee.name].length === 0) {
             delete updatedShoppingCart[coffee.name]
